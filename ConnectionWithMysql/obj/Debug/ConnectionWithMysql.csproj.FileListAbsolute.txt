@@ -1,0 +1,25 @@
+C:\Users\eljho\source\repos\ConnectionWithMysql\ConnectionWithMysql\bin\Debug\ConnectionWithMysql.exe.config
+C:\Users\eljho\source\repos\ConnectionWithMysql\ConnectionWithMysql\bin\Debug\ConnectionWithMysql.exe
+C:\Users\eljho\source\repos\ConnectionWithMysql\ConnectionWithMysql\bin\Debug\ConnectionWithMysql.pdb
+C:\Users\eljho\source\repos\ConnectionWithMysql\ConnectionWithMysql\obj\Debug\ConnectionWithMysql.csproj.AssemblyReference.cache
+C:\Users\eljho\source\repos\ConnectionWithMysql\ConnectionWithMysql\obj\Debug\ConnectionWithMysql.Form1.resources
+C:\Users\eljho\source\repos\ConnectionWithMysql\ConnectionWithMysql\obj\Debug\ConnectionWithMysql.Properties.Resources.resources
+C:\Users\eljho\source\repos\ConnectionWithMysql\ConnectionWithMysql\obj\Debug\ConnectionWithMysql.csproj.GenerateResource.cache
+C:\Users\eljho\source\repos\ConnectionWithMysql\ConnectionWithMysql\obj\Debug\ConnectionWithMysql.csproj.CoreCompileInputs.cache
+C:\Users\eljho\source\repos\ConnectionWithMysql\ConnectionWithMysql\obj\Debug\ConnectionWithMysql.exe
+C:\Users\eljho\source\repos\ConnectionWithMysql\ConnectionWithMysql\obj\Debug\ConnectionWithMysql.pdb
+C:\Users\eljho\source\repos\ConnectionWithMysql\ConnectionWithMysql\bin\Debug\MySql.Data.dll
+C:\Users\eljho\source\repos\ConnectionWithMysql\ConnectionWithMysql\bin\Debug\MySql.Data.xml
+C:\Users\eljho\source\repos\ConnectionWithMysql\ConnectionWithMysql\obj\Debug\ConnectionWithMysql.csproj.CopyComplete
+D:\Documentos\Sexto Semestre\TopicosBaseDatos\Competencia 3\ConnectionWithMysql\ConnectionWithMysql\ConnectionWithMysql\bin\Debug\ConnectionWithMysql.exe.config
+D:\Documentos\Sexto Semestre\TopicosBaseDatos\Competencia 3\ConnectionWithMysql\ConnectionWithMysql\ConnectionWithMysql\bin\Debug\ConnectionWithMysql.exe
+D:\Documentos\Sexto Semestre\TopicosBaseDatos\Competencia 3\ConnectionWithMysql\ConnectionWithMysql\ConnectionWithMysql\bin\Debug\ConnectionWithMysql.pdb
+D:\Documentos\Sexto Semestre\TopicosBaseDatos\Competencia 3\ConnectionWithMysql\ConnectionWithMysql\ConnectionWithMysql\bin\Debug\MySql.Data.xml
+D:\Documentos\Sexto Semestre\TopicosBaseDatos\Competencia 3\ConnectionWithMysql\ConnectionWithMysql\ConnectionWithMysql\obj\Debug\ConnectionWithMysql.csproj.AssemblyReference.cache
+D:\Documentos\Sexto Semestre\TopicosBaseDatos\Competencia 3\ConnectionWithMysql\ConnectionWithMysql\ConnectionWithMysql\obj\Debug\ConnectionWithMysql.Form1.resources
+D:\Documentos\Sexto Semestre\TopicosBaseDatos\Competencia 3\ConnectionWithMysql\ConnectionWithMysql\ConnectionWithMysql\obj\Debug\ConnectionWithMysql.Properties.Resources.resources
+D:\Documentos\Sexto Semestre\TopicosBaseDatos\Competencia 3\ConnectionWithMysql\ConnectionWithMysql\ConnectionWithMysql\obj\Debug\ConnectionWithMysql.csproj.GenerateResource.cache
+D:\Documentos\Sexto Semestre\TopicosBaseDatos\Competencia 3\ConnectionWithMysql\ConnectionWithMysql\ConnectionWithMysql\obj\Debug\ConnectionWithMysql.csproj.CoreCompileInputs.cache
+D:\Documentos\Sexto Semestre\TopicosBaseDatos\Competencia 3\ConnectionWithMysql\ConnectionWithMysql\ConnectionWithMysql\obj\Debug\ConnectionWithMysql.csproj.CopyComplete
+D:\Documentos\Sexto Semestre\TopicosBaseDatos\Competencia 3\ConnectionWithMysql\ConnectionWithMysql\ConnectionWithMysql\obj\Debug\ConnectionWithMysql.exe
+D:\Documentos\Sexto Semestre\TopicosBaseDatos\Competencia 3\ConnectionWithMysql\ConnectionWithMysql\ConnectionWithMysql\obj\Debug\ConnectionWithMysql.pdb
