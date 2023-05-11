@@ -29,6 +29,12 @@ namespace ConnectionWithMysql
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtHost = new System.Windows.Forms.TextBox();
             this.btnProbarConexión = new System.Windows.Forms.Button();
@@ -63,26 +69,28 @@ namespace ConnectionWithMysql
             this.label5 = new System.Windows.Forms.Label();
             this.txtPuerto = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.dgvDatoSQL = new System.Windows.Forms.DataGridView();
-            this.dgvConsultaFragmentacion = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblTipoFragmentación = new System.Windows.Forms.Label();
             this.btnFragmentacion = new System.Windows.Forms.Button();
             this.cmbTipoFragmentacion = new System.Windows.Forms.ComboBox();
+            this.btnMostrarDatosSQL = new System.Windows.Forms.Button();
+            this.dgvDatosSQL = new System.Windows.Forms.DataGridView();
+            this.dgvConsultaFragmentacion = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosMySQL)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatoSQL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosSQL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultaFragmentacion)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(90, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 20);
+            this.label1.Size = new System.Drawing.Size(52, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Host:";
             // 
@@ -90,7 +98,7 @@ namespace ConnectionWithMysql
             // 
             this.txtHost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHost.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtHost.Location = new System.Drawing.Point(134, 12);
+            this.txtHost.Location = new System.Drawing.Point(148, 12);
             this.txtHost.Name = "txtHost";
             this.txtHost.Size = new System.Drawing.Size(197, 26);
             this.txtHost.TabIndex = 1;
@@ -98,11 +106,11 @@ namespace ConnectionWithMysql
             // 
             // btnProbarConexión
             // 
-            this.btnProbarConexión.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnProbarConexión.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(227)))), ((int)(((byte)(102)))));
             this.btnProbarConexión.FlatAppearance.BorderSize = 0;
             this.btnProbarConexión.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProbarConexión.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProbarConexión.Location = new System.Drawing.Point(134, 151);
+            this.btnProbarConexión.Location = new System.Drawing.Point(148, 147);
             this.btnProbarConexión.Name = "btnProbarConexión";
             this.btnProbarConexión.Size = new System.Drawing.Size(197, 37);
             this.btnProbarConexión.TabIndex = 5;
@@ -114,7 +122,7 @@ namespace ConnectionWithMysql
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtUsuario.Location = new System.Drawing.Point(134, 45);
+            this.txtUsuario.Location = new System.Drawing.Point(148, 45);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(197, 26);
             this.txtUsuario.TabIndex = 2;
@@ -123,10 +131,11 @@ namespace ConnectionWithMysql
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(12, 110);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 20);
+            this.label2.Size = new System.Drawing.Size(130, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Base de datos:";
             // 
@@ -134,7 +143,7 @@ namespace ConnectionWithMysql
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtPassword.Location = new System.Drawing.Point(134, 77);
+            this.txtPassword.Location = new System.Drawing.Point(148, 77);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(197, 26);
             this.txtPassword.TabIndex = 3;
@@ -143,10 +152,11 @@ namespace ConnectionWithMysql
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 42);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(66, 45);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 20);
+            this.label3.Size = new System.Drawing.Size(76, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Usuario:";
             // 
@@ -154,7 +164,7 @@ namespace ConnectionWithMysql
             // 
             this.txtBD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBD.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtBD.Location = new System.Drawing.Point(134, 110);
+            this.txtBD.Location = new System.Drawing.Point(148, 110);
             this.txtBD.Name = "txtBD";
             this.txtBD.Size = new System.Drawing.Size(197, 26);
             this.txtBD.TabIndex = 4;
@@ -163,10 +173,11 @@ namespace ConnectionWithMysql
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 75);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(35, 77);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 20);
+            this.label4.Size = new System.Drawing.Size(107, 20);
             this.label4.TabIndex = 7;
             this.label4.Text = "Contraseña:";
             // 
@@ -175,7 +186,7 @@ namespace ConnectionWithMysql
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(1, 211);
+            this.tabControl1.Location = new System.Drawing.Point(16, 252);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(391, 285);
@@ -345,6 +356,7 @@ namespace ConnectionWithMysql
             this.btnRealizarSql.TabIndex = 17;
             this.btnRealizarSql.Text = "Realizar";
             this.btnRealizarSql.UseVisualStyleBackColor = false;
+            this.btnRealizarSql.Click += new System.EventHandler(this.btnRealizarSql_Click);
             // 
             // label13
             // 
@@ -368,6 +380,7 @@ namespace ConnectionWithMysql
             this.cmbOperacionSQL.Name = "cmbOperacionSQL";
             this.cmbOperacionSQL.Size = new System.Drawing.Size(239, 28);
             this.cmbOperacionSQL.TabIndex = 19;
+            this.cmbOperacionSQL.SelectedIndexChanged += new System.EventHandler(this.cmbOperacionSQL_SelectedIndexChanged);
             // 
             // txtNombreSql
             // 
@@ -410,17 +423,35 @@ namespace ConnectionWithMysql
             // dgvDatosMySQL
             // 
             this.dgvDatosMySQL.AllowUserToAddRows = false;
-            this.dgvDatosMySQL.AllowUserToDeleteRows = false;
+            this.dgvDatosMySQL.AllowUserToResizeRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gainsboro;
+            this.dgvDatosMySQL.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvDatosMySQL.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDatosMySQL.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
             this.dgvDatosMySQL.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvDatosMySQL.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvDatosMySQL.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(152)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(152)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatosMySQL.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvDatosMySQL.ColumnHeadersHeight = 30;
             this.dgvDatosMySQL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDatosMySQL.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvDatosMySQL.EnableHeadersVisualStyles = false;
+            this.dgvDatosMySQL.GridColor = System.Drawing.Color.White;
             this.dgvDatosMySQL.Location = new System.Drawing.Point(418, 33);
             this.dgvDatosMySQL.Name = "dgvDatosMySQL";
             this.dgvDatosMySQL.ReadOnly = true;
+            this.dgvDatosMySQL.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvDatosMySQL.RowHeadersVisible = false;
             this.dgvDatosMySQL.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvDatosMySQL.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDatosMySQL.Size = new System.Drawing.Size(541, 97);
+            this.dgvDatosMySQL.Size = new System.Drawing.Size(541, 119);
             this.dgvDatosMySQL.TabIndex = 10;
             this.dgvDatosMySQL.SelectionChanged += new System.EventHandler(this.dgvDatos_SelectionChanged);
             // 
@@ -428,7 +459,8 @@ namespace ConnectionWithMysql
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(554, 9);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(414, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(142, 20);
             this.label5.TabIndex = 11;
@@ -438,7 +470,7 @@ namespace ConnectionWithMysql
             // 
             this.txtPuerto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPuerto.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtPuerto.Location = new System.Drawing.Point(5, 155);
+            this.txtPuerto.Location = new System.Drawing.Point(28, 152);
             this.txtPuerto.Name = "txtPuerto";
             this.txtPuerto.Size = new System.Drawing.Size(103, 26);
             this.txtPuerto.TabIndex = 12;
@@ -449,61 +481,31 @@ namespace ConnectionWithMysql
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(554, 158);
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(414, 155);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(177, 20);
             this.label8.TabIndex = 14;
             this.label8.Text = "Consulta SQL Server";
             // 
-            // dgvDatoSQL
+            // lblTipoFragmentación
             // 
-            this.dgvDatoSQL.AllowUserToAddRows = false;
-            this.dgvDatoSQL.AllowUserToDeleteRows = false;
-            this.dgvDatoSQL.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvDatoSQL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvDatoSQL.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvDatoSQL.EnableHeadersVisualStyles = false;
-            this.dgvDatoSQL.Location = new System.Drawing.Point(418, 182);
-            this.dgvDatoSQL.Name = "dgvDatoSQL";
-            this.dgvDatoSQL.ReadOnly = true;
-            this.dgvDatoSQL.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvDatoSQL.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDatoSQL.Size = new System.Drawing.Size(541, 97);
-            this.dgvDatoSQL.TabIndex = 13;
-            // 
-            // dgvConsultaFragmentacion
-            // 
-            this.dgvConsultaFragmentacion.AllowUserToAddRows = false;
-            this.dgvConsultaFragmentacion.AllowUserToDeleteRows = false;
-            this.dgvConsultaFragmentacion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvConsultaFragmentacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvConsultaFragmentacion.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvConsultaFragmentacion.EnableHeadersVisualStyles = false;
-            this.dgvConsultaFragmentacion.Location = new System.Drawing.Point(418, 343);
-            this.dgvConsultaFragmentacion.Name = "dgvConsultaFragmentacion";
-            this.dgvConsultaFragmentacion.ReadOnly = true;
-            this.dgvConsultaFragmentacion.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvConsultaFragmentacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvConsultaFragmentacion.Size = new System.Drawing.Size(541, 101);
-            this.dgvConsultaFragmentacion.TabIndex = 15;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(554, 303);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(292, 20);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Consulta Fragmentacion Horizontal";
+            this.lblTipoFragmentación.AutoSize = true;
+            this.lblTipoFragmentación.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoFragmentación.ForeColor = System.Drawing.Color.White;
+            this.lblTipoFragmentación.Location = new System.Drawing.Point(414, 346);
+            this.lblTipoFragmentación.Name = "lblTipoFragmentación";
+            this.lblTipoFragmentación.Size = new System.Drawing.Size(292, 20);
+            this.lblTipoFragmentación.TabIndex = 16;
+            this.lblTipoFragmentación.Text = "Consulta Fragmentacion Horizontal";
             // 
             // btnFragmentacion
             // 
-            this.btnFragmentacion.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnFragmentacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(227)))), ((int)(((byte)(102)))));
             this.btnFragmentacion.FlatAppearance.BorderSize = 0;
             this.btnFragmentacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFragmentacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFragmentacion.Location = new System.Drawing.Point(418, 450);
+            this.btnFragmentacion.Location = new System.Drawing.Point(418, 505);
             this.btnFragmentacion.Name = "btnFragmentacion";
             this.btnFragmentacion.Size = new System.Drawing.Size(313, 34);
             this.btnFragmentacion.TabIndex = 15;
@@ -516,25 +518,110 @@ namespace ConnectionWithMysql
             this.cmbTipoFragmentacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoFragmentacion.FormattingEnabled = true;
             this.cmbTipoFragmentacion.Items.AddRange(new object[] {
-            "Horizontal ",
+            "Horizontal",
             "Deriva",
             "HorizontalDeriva"});
-            this.cmbTipoFragmentacion.Location = new System.Drawing.Point(737, 454);
+            this.cmbTipoFragmentacion.Location = new System.Drawing.Point(737, 509);
             this.cmbTipoFragmentacion.Name = "cmbTipoFragmentacion";
             this.cmbTipoFragmentacion.Size = new System.Drawing.Size(206, 28);
             this.cmbTipoFragmentacion.TabIndex = 15;
+            // 
+            // btnMostrarDatosSQL
+            // 
+            this.btnMostrarDatosSQL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(227)))), ((int)(((byte)(102)))));
+            this.btnMostrarDatosSQL.FlatAppearance.BorderSize = 0;
+            this.btnMostrarDatosSQL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrarDatosSQL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMostrarDatosSQL.Location = new System.Drawing.Point(718, 308);
+            this.btnMostrarDatosSQL.Name = "btnMostrarDatosSQL";
+            this.btnMostrarDatosSQL.Size = new System.Drawing.Size(241, 34);
+            this.btnMostrarDatosSQL.TabIndex = 17;
+            this.btnMostrarDatosSQL.Text = "Mostrar Datos de SQL Server";
+            this.btnMostrarDatosSQL.UseVisualStyleBackColor = false;
+            this.btnMostrarDatosSQL.Click += new System.EventHandler(this.btnMostrarDatosSQL_Click);
+            // 
+            // dgvDatosSQL
+            // 
+            this.dgvDatosSQL.AllowUserToAddRows = false;
+            this.dgvDatosSQL.AllowUserToResizeRows = false;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Gainsboro;
+            this.dgvDatosSQL.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvDatosSQL.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDatosSQL.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
+            this.dgvDatosSQL.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvDatosSQL.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvDatosSQL.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(152)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(152)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatosSQL.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.dgvDatosSQL.ColumnHeadersHeight = 30;
+            this.dgvDatosSQL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvDatosSQL.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvDatosSQL.EnableHeadersVisualStyles = false;
+            this.dgvDatosSQL.GridColor = System.Drawing.Color.White;
+            this.dgvDatosSQL.Location = new System.Drawing.Point(418, 183);
+            this.dgvDatosSQL.Name = "dgvDatosSQL";
+            this.dgvDatosSQL.ReadOnly = true;
+            this.dgvDatosSQL.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvDatosSQL.RowHeadersVisible = false;
+            this.dgvDatosSQL.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvDatosSQL.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDatosSQL.Size = new System.Drawing.Size(541, 119);
+            this.dgvDatosSQL.TabIndex = 18;
+            this.dgvDatosSQL.SelectionChanged += new System.EventHandler(this.dgvDatosSQL_SelectionChanged);
+            // 
+            // dgvConsultaFragmentacion
+            // 
+            this.dgvConsultaFragmentacion.AllowUserToAddRows = false;
+            this.dgvConsultaFragmentacion.AllowUserToResizeRows = false;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Gainsboro;
+            this.dgvConsultaFragmentacion.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvConsultaFragmentacion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvConsultaFragmentacion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
+            this.dgvConsultaFragmentacion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvConsultaFragmentacion.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvConsultaFragmentacion.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(152)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(152)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvConsultaFragmentacion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvConsultaFragmentacion.ColumnHeadersHeight = 30;
+            this.dgvConsultaFragmentacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvConsultaFragmentacion.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvConsultaFragmentacion.EnableHeadersVisualStyles = false;
+            this.dgvConsultaFragmentacion.GridColor = System.Drawing.Color.White;
+            this.dgvConsultaFragmentacion.Location = new System.Drawing.Point(418, 370);
+            this.dgvConsultaFragmentacion.Name = "dgvConsultaFragmentacion";
+            this.dgvConsultaFragmentacion.ReadOnly = true;
+            this.dgvConsultaFragmentacion.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvConsultaFragmentacion.RowHeadersVisible = false;
+            this.dgvConsultaFragmentacion.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvConsultaFragmentacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvConsultaFragmentacion.Size = new System.Drawing.Size(541, 133);
+            this.dgvConsultaFragmentacion.TabIndex = 19;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 496);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.ClientSize = new System.Drawing.Size(971, 555);
+            this.Controls.Add(this.dgvConsultaFragmentacion);
+            this.Controls.Add(this.dgvDatosSQL);
+            this.Controls.Add(this.btnMostrarDatosSQL);
             this.Controls.Add(this.cmbTipoFragmentacion);
             this.Controls.Add(this.btnFragmentacion);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.dgvConsultaFragmentacion);
+            this.Controls.Add(this.lblTipoFragmentación);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.dgvDatoSQL);
             this.Controls.Add(this.txtPuerto);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dgvDatosMySQL);
@@ -548,6 +635,7 @@ namespace ConnectionWithMysql
             this.Controls.Add(this.btnProbarConexión);
             this.Controls.Add(this.txtHost);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MySQL with C#";
@@ -558,7 +646,7 @@ namespace ConnectionWithMysql
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosMySQL)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatoSQL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosSQL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultaFragmentacion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -590,9 +678,7 @@ namespace ConnectionWithMysql
         public System.Windows.Forms.DataGridView dgvDatosMySQL;
         private System.Windows.Forms.TextBox txtPuerto;
         private System.Windows.Forms.Label label8;
-        public System.Windows.Forms.DataGridView dgvDatoSQL;
-        public System.Windows.Forms.DataGridView dgvConsultaFragmentacion;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblTipoFragmentación;
         private System.Windows.Forms.Button btnFragmentacion;
         private System.Windows.Forms.ComboBox cmbTipoFragmentacion;
         private System.Windows.Forms.TextBox txtCalleMySql;
@@ -606,6 +692,9 @@ namespace ConnectionWithMysql
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtIDSql;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btnMostrarDatosSQL;
+        public System.Windows.Forms.DataGridView dgvDatosSQL;
+        public System.Windows.Forms.DataGridView dgvConsultaFragmentacion;
     }
 }
 
