@@ -38,7 +38,7 @@ namespace ConnectionWithMysql
                 con.Open();
 
                 // Crea una consulta SQL para seleccionar todos los registros de una tabla
-                string sql = "SELECT * FROM proveedorMySQL";
+                string sql = "SELECT * FROM Productos";//De mysql
 
                 // Ejecuta la consulta y obtiene los resultados
                 MySqlCommand cmd = new MySqlCommand(sql, con);
@@ -50,7 +50,7 @@ namespace ConnectionWithMysql
                 dgvDatosMySQL.DataSource = dt;
                 txtIDMySql.Text = "";
                 txtNombreMySql.Text = "";
-                txtCalleMySql.Text = "";
+                txtPrecioMySql.Text = "";
                 //MessageBox.Show("La consulta del proveedor MySql fué exitosa");
             }
             catch (Exception ex)
@@ -66,7 +66,7 @@ namespace ConnectionWithMysql
         private void btnProbarConexión_Click(object sender, EventArgs e)
         {
             mostrarDatosMySQL();
-            MessageBox.Show("La consulta del proveedor MySql fué exitosa");
+            //MessageBox.Show("La consulta del producto MySql fué exitosa");
         }
         public void InsertarDatos()
         {
@@ -87,9 +87,16 @@ namespace ConnectionWithMysql
             cmd.CommandType = CommandType.StoredProcedure;//Indicamos que el comando va a ser de tipo Procedimiento Almacenado
                                                           //cmd.Parameters.AddWithValue("@IdLibro", usuario.IdUsuario);//Como parametro indicamos el nombre de la categoria (es la variable ya hecha con el procedimiento almacenado)
                                                           //el parametro @distrito nombre debe seri igual al declarado en el sp,  //Tambien indicamos de donde proviene dicha informacion, en este caso del parametro del propio metodo, que trae el dato que ingrese el usuario
-            cmd.Parameters.AddWithValue("@IDProveedor", txtIDMySql.Text);//Estos son los nombres identificares declarados en el scrip de sql y el segundo en la clase EN_Proveedor
+            cmd.Parameters.AddWithValue("@IDProducto", txtIDMySql.Text);//Estos son los nombres identificares declarados en el scrip de sql y el segundo en la clase EN_Proveedor
             cmd.Parameters.AddWithValue("@Nombre", txtNombreMySql.Text);
-            cmd.Parameters.AddWithValue("@Calle", txtCalleMySql.Text);
+            cmd.Parameters.AddWithValue("@Precio", txtPrecioMySql.Text);
+            cmd.Parameters.AddWithValue("@IDCategoria", txtIDCategoriaMySql.Text);
+            cmd.Parameters.AddWithValue("@IDZona", txtIDZonaMySql.Text);
+            /*
+             * @Precio varchar(30),
+@IDCategoria varchar(100),
+@IDZona varchar(100)
+             */
 
             conn.Open();//Abrimos la conexion
             cmd.ExecuteNonQuery();//Ejecutamos la consulta
@@ -111,13 +118,18 @@ namespace ConnectionWithMysql
 
             // Create a new MySqlConnection object
             MySqlConnection conn = new MySqlConnection(connString);
-            string query = "UPDATE proveedorMySQL SET Nombre = @Nombre, Calle = @Calle WHERE IdProveedor = @IdProveedor"; // Reemplaza "Usuarios" por el nombre de tu tabla, "Nombre" por el campo que deseas actualizar, y "Id" por el campo que identifica al registro a actualizar
+            string query = "UPDATE Productos SET Nombre = @Nombre, Precio = @Precio, IDCategoria = @IDCategoria,  IDZona = @IDZona WHERE IdProducto = @IdProducto"; // Reemplaza "Usuarios" por el nombre de tu tabla, "Nombre" por el campo que deseas actualizar, y "Id" por el campo que identifica al registro a actualizar
 
             using (MySqlCommand cmd = new MySqlCommand(query, conn))
             {
-                cmd.Parameters.AddWithValue("@Nombre", txtNombreMySql.Text); // Reemplaza "Nuevo nombre" por el nuevo valor que deseas asignar al campo "Nombre"
-                cmd.Parameters.AddWithValue("@Calle", txtCalleMySql.Text);
-                cmd.Parameters.AddWithValue("@IdProveedor", txtIDMySql.Text); // Reemplaza "1" por el valor que identifica al registro que deseas actualizar
+                //cmd.Parameters.AddWithValue("@Nombre", txtNombreMySql.Text); // Reemplaza "Nuevo nombre" por el nuevo valor que deseas asignar al campo "Nombre"
+                //cmd.Parameters.AddWithValue("@Calle", txtPrecioMySql.Text);
+                //cmd.Parameters.AddWithValue("@IdProducto", txtIDMySql.Text); // Reemplaza "1" por el valor que identifica al registro que deseas actualizar
+                cmd.Parameters.AddWithValue("@IDProducto", txtIDMySql.Text);//Estos son los nombres identificares declarados en el scrip de sql y el segundo en la clase EN_Proveedor
+                cmd.Parameters.AddWithValue("@Nombre", txtNombreMySql.Text);
+                cmd.Parameters.AddWithValue("@Precio", txtPrecioMySql.Text);
+                cmd.Parameters.AddWithValue("@IDCategoria", txtIDCategoriaMySql.Text);
+                cmd.Parameters.AddWithValue("@IDZona", txtIDZonaMySql.Text);
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 mostrarDatosMySQL();
@@ -137,12 +149,12 @@ namespace ConnectionWithMysql
 
             // Create a new MySqlConnection object
             MySqlConnection conn = new MySqlConnection(connString);
-            string query = "DELETE FROM proveedorMySQL WHERE IdProveedor = @IdProveedor";  // Reemplaza "Usuarios" por el nombre de tu tabla, "Nombre" por el campo que deseas actualizar, y "Id" por el campo que identifica al registro a actualizar
+            string query = "DELETE FROM Productos WHERE IdProducto = @IdProducto";  // Reemplaza "Usuarios" por el nombre de tu tabla, "Nombre" por el campo que deseas actualizar, y "Id" por el campo que identifica al registro a actualizar
 
             using (MySqlCommand cmd = new MySqlCommand(query, conn))
             {
                
-                cmd.Parameters.AddWithValue("@IdProveedor", txtIDMySql.Text); // Reemplaza "1" por el valor que identifica al registro que deseas actualizar
+                cmd.Parameters.AddWithValue("@IdProducto", txtIDMySql.Text); // Reemplaza "1" por el valor que identifica al registro que deseas actualizar
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 mostrarDatosMySQL();
@@ -169,7 +181,7 @@ namespace ConnectionWithMysql
                 // Update the text boxes
                 txtIDMySql.Text = "";
                 txtNombreMySql.Text = "";
-                txtCalleMySql.Text = "";
+                txtPrecioMySql.Text = "";
 
             }
             if (dgvDatosMySQL.SelectedRows.Count > 0 && cmbOperacionMySQL.SelectedIndex == 1)
@@ -180,7 +192,9 @@ namespace ConnectionWithMysql
                 // Update the text boxes
                 txtIDMySql.Text = dgvDatosMySQL.CurrentRow.Cells[0].Value.ToString();
                 txtNombreMySql.Text = dgvDatosMySQL.CurrentRow.Cells[1].Value.ToString();
-                txtCalleMySql.Text = dgvDatosMySQL.CurrentRow.Cells[2].Value.ToString();
+                txtPrecioMySql.Text = dgvDatosMySQL.CurrentRow.Cells[2].Value.ToString();
+                txtIDCategoriaMySql.Text = dgvDatosMySQL.CurrentRow.Cells[3].Value.ToString();
+                txtIDZonaMySql.Text = dgvDatosMySQL.CurrentRow.Cells[4].Value.ToString();
 
             }
             if (dgvDatosMySQL.SelectedRows.Count > 0 && cmbOperacionMySQL.SelectedIndex == 2)
@@ -193,7 +207,9 @@ namespace ConnectionWithMysql
                 txtIDMySql.Text = dgvDatosMySQL.CurrentRow.Cells[0].Value.ToString();
 
                 txtNombreMySql.Text = dgvDatosMySQL.CurrentRow.Cells[1].Value.ToString();
-                txtCalleMySql.Text = dgvDatosMySQL.CurrentRow.Cells[1].Value.ToString();
+                txtPrecioMySql.Text = dgvDatosMySQL.CurrentRow.Cells[2].Value.ToString();
+                txtIDCategoriaMySql.Text = dgvDatosMySQL.CurrentRow.Cells[3].Value.ToString();
+                txtIDZonaMySql.Text = dgvDatosMySQL.CurrentRow.Cells[4].Value.ToString();
 
             }
         }
@@ -218,7 +234,9 @@ namespace ConnectionWithMysql
                 // Update the text boxes
                 txtIDSql.Text = dgvDatosSQL.CurrentRow.Cells[0].Value.ToString();
                 txtNombreSql.Text = dgvDatosSQL.CurrentRow.Cells[1].Value.ToString();
-                txtCalleSql.Text = dgvDatosSQL.CurrentRow.Cells[2].Value.ToString();
+                txtPrecioSql.Text = dgvDatosSQL.CurrentRow.Cells[2].Value.ToString();
+                txtIDCategoriaSql.Text = dgvDatosSQL.CurrentRow.Cells[3].Value.ToString();
+                txtIDZonaSql.Text = dgvDatosSQL.CurrentRow.Cells[4].Value.ToString();
 
             }
             if (dgvDatosSQL.SelectedRows.Count > 0 && cmbOperacionSQL.SelectedIndex == 2)
@@ -231,7 +249,9 @@ namespace ConnectionWithMysql
                 txtIDSql.Text = dgvDatosSQL.CurrentRow.Cells[0].Value.ToString();
 
                 txtNombreSql.Text = dgvDatosSQL.CurrentRow.Cells[1].Value.ToString();
-                txtCalleSql.Text = dgvDatosSQL.CurrentRow.Cells[2].Value.ToString();
+                txtPrecioSql.Text = dgvDatosSQL.CurrentRow.Cells[2].Value.ToString();
+                txtIDCategoriaSql.Text = dgvDatosSQL.CurrentRow.Cells[3].Value.ToString();
+                txtIDZonaSql.Text = dgvDatosSQL.CurrentRow.Cells[4].Value.ToString();
 
             }
         }
@@ -279,11 +299,11 @@ namespace ConnectionWithMysql
             switch (operacion)
             {
                 case "Horizontal":
-                    //FragmentacionHorizontal();
+                    FragmentacionHorizontal2();
                     break;
 
-                case "Deriva":
-                    //FragmentacionVertical();
+                case "Vertical":
+                    FragmentacionVertical2();
                     break;
 
                 case "HorizontalDeriva":
@@ -316,7 +336,9 @@ namespace ConnectionWithMysql
                 dgvDatosSQL.DataSource = dt;
                 txtIDSql.Text = "";
                 txtNombreSql.Text = "";
-                txtCalleSql.Text = ""; 
+                txtPrecioSql.Text = "";
+                txtIDCategoriaSql.Text = "";
+                txtIDZonaSql.Text = "";
                 //// Carga los resultados en el control DataGridView
                 //dgvDatosMySQL.DataSource = dt;
                 //MessageBox.Show("El proceso se realizó con éxito");
@@ -349,12 +371,14 @@ namespace ConnectionWithMysql
                                                               //el parametro @distrito nombre debe seri igual al declarado en el sp,  //Tambien indicamos de donde proviene dicha informacion, en este caso del parametro del propio metodo, que trae el dato que ingrese el usuario
                 //Estos son los nombres identificares declarados en el scrip de sql y el segundo en la clase EN_Proveedor
                 cmd.Parameters.AddWithValue("@Nombre", txtNombreSql.Text); // Reemplaza "Nuevo nombre" por el nuevo valor que deseas asignar al campo "Nombre"
-                cmd.Parameters.AddWithValue("@Calle", txtCalleSql.Text);
+                cmd.Parameters.AddWithValue("@Precio", txtPrecioSql.Text);
                 cmd.Parameters.AddWithValue("@IdProveedor", txtIDSql.Text);
+                cmd.Parameters.AddWithValue("@IDCategoria", txtIDCategoriaSql.Text);
+                cmd.Parameters.AddWithValue("@IDZona", txtIDZonaSql.Text);
                 cn.Open();//Abrimos la conexion
                 cmd.ExecuteNonQuery();//Ejecutamos la consulta
                 cn.Close();//Cerramos la conexión
-                MessageBox.Show("El proveedor de SQL se registró correctamente");//Para verificar que ha ejecutado estas lineas, mostramos este mensaje
+                MessageBox.Show("El producto de SQL se registró correctamente");//Para verificar que ha ejecutado estas lineas, mostramos este mensaje
                 mostrarDatosSQL();
             }
             catch (Exception ex)//En caso de algun error
@@ -380,12 +404,14 @@ namespace ConnectionWithMysql
                                                               //el parametro @distrito nombre debe seri igual al declarado en el sp,  //Tambien indicamos de donde proviene dicha informacion, en este caso del parametro del propio metodo, que trae el dato que ingrese el usuario
                                                               //Estos son los nombres identificares declarados en el scrip de sql y el segundo en la clase EN_Proveedor
                 cmd.Parameters.AddWithValue("@Nombre", txtNombreSql.Text); // Reemplaza "Nuevo nombre" por el nuevo valor que deseas asignar al campo "Nombre"
-                cmd.Parameters.AddWithValue("@Calle", txtCalleSql.Text);
+                cmd.Parameters.AddWithValue("@Precio", txtPrecioSql.Text);
                 cmd.Parameters.AddWithValue("@IdProveedor", txtIDSql.Text);
+                cmd.Parameters.AddWithValue("@IDCategoria", txtIDCategoriaSql.Text);
+                cmd.Parameters.AddWithValue("@IDZona", txtIDZonaSql.Text);
                 cn.Open();//Abrimos la conexion
                 cmd.ExecuteNonQuery();//Ejecutamos la consulta
                 cn.Close();//Cerramos la conexión
-                MessageBox.Show("El proveedor de SQL se actualizó correctamente");//Para verificar que ha ejecutado estas lineas, mostramos este mensaje
+                MessageBox.Show("El producto de SQL se actualizó correctamente");//Para verificar que ha ejecutado estas lineas, mostramos este mensaje
                 mostrarDatosSQL();
             }
             catch (Exception ex)//En caso de algun error
@@ -414,7 +440,7 @@ namespace ConnectionWithMysql
                 cn.Open();//Abrimos la conexion
                 cmd.ExecuteNonQuery();//Ejecutamos la consulta
                 cn.Close();//Cerramos la conexión
-                MessageBox.Show("El proveedor de SQL se eliminó correctamente");//Para verificar que ha ejecutado estas lineas, mostramos este mensaje
+                MessageBox.Show("El producto de SQL se eliminó correctamente");//Para verificar que ha ejecutado estas lineas, mostramos este mensaje
                 mostrarDatosSQL();
             }
             catch (Exception ex)//En caso de algun error
@@ -547,6 +573,80 @@ namespace ConnectionWithMysql
                 da.Fill(dt);
                 dgvConsultaFragmentacion.DataSource = dt;
                 lblTipoFragmentación.Text = "Consulta Fragmentacion Vertical";
+                MessageBox.Show("Se realizó la: " + lblTipoFragmentación.Text, lblTipoFragmentación.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                // Cierra la conexión
+                cn.Close();
+            }
+        }
+        private void FragmentacionVertical2()
+        {
+            SqlConnection cn = new SqlConnection(Operaciones.ObtenerCadenaSql());
+            //MySqlConnection con = new MySqlConnection(Operaciones.ObtenerCadenaMySQL(host, bd, usuario, password));
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand("mostrarProveedoresVertical2", cn);//Indicamos el sp a ejecutar (debe ser con el nombre dado en sql y la conexion
+                cmd.CommandTimeout = 20;//Espera a ejecutar esto en 20 segundo, si demora mas tiempo pasa al catch
+                //cmd.CommandType = CommandType.StoredProcedure;//Indicamos que el comando va a ser de tipo Procedimiento Almacenado
+                //cmd.Parameters.AddWithValue("@Titulo", buscar);
+                cmd.Parameters.AddWithValue("@IDZona", txtIDZona.Text);
+                da = new SqlDataAdapter(cmd);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dt = new DataTable();
+                da.Fill(dt);
+                dgvConsultaFragmentacion.DataSource = dt;
+                lblTipoFragmentación.Text = "Consulta Fragmentacion Vertical";
+                MessageBox.Show("Se realizó la: " + lblTipoFragmentación.Text, lblTipoFragmentación.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                // Cierra la conexión
+                cn.Close();
+            }
+        }
+        /*
+         * create PROC mostrarProveedoresHorizontal
+        @IDZona varchar(10)
+        as
+        SELECT *
+        FROM OPENQUERY(MySqlVinculado, '
+         SELECT Nombre, Precio, IDCategoria, IDZona
+         FROM Productos
+         INNER JOIN Categoria
+         ON Productos.IDCategoria = Categoria.ID_C
+         INNER JOIN Zona
+         ON Productos.IDZona = Zona.ID_Z where IDZona = 1')
+
+         */
+        private void FragmentacionHorizontal2()
+        {
+            SqlConnection cn = new SqlConnection(Operaciones.ObtenerCadenaSql());
+            //MySqlConnection con = new MySqlConnection(Operaciones.ObtenerCadenaMySQL(host, bd, usuario, password));
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand("mostrarProveedoresHorizontal2", cn);//Indicamos el sp a ejecutar (debe ser con el nombre dado en sql y la conexion
+                cmd.CommandTimeout = 20;//Espera a ejecutar esto en 20 segundo, si demora mas tiempo pasa al catch
+                //cmd.CommandType = CommandType.StoredProcedure;//Indicamos que el comando va a ser de tipo Procedimiento Almacenado
+                //cmd.Parameters.AddWithValue("@Titulo", buscar);
+                cmd.Parameters.AddWithValue("@IDZona", txtIDZona.Text);
+                da = new SqlDataAdapter(cmd);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dt = new DataTable();
+                da.Fill(dt);
+                dgvConsultaFragmentacion.DataSource = dt;
+                lblTipoFragmentación.Text = "Consulta Fragmentacion Horizontal";
                 MessageBox.Show("Se realizó la: " + lblTipoFragmentación.Text, lblTipoFragmentación.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)

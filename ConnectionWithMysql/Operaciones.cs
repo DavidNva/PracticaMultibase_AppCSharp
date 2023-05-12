@@ -30,7 +30,7 @@ namespace ConnectionWithMysql
         }
         public static string ObtenerCadenaSql(/*string host, string usuario, string password, string bd*/)
         {
-            return "Data Source =.; Initial Catalog = TiendaCarBD; Integrated Security = True";
+            return "Data Source =.; Initial Catalog = BDFragmentaciones; Integrated Security = True";
             //return "Server=" + host + "; Database = " + bd + "; User ID=" + usuario + "; Password=" + password + "";
 
             //return "Database=" + bd + "; Data Source=" + host + "; User Id=" + usuario + "; Password=" + password + "";

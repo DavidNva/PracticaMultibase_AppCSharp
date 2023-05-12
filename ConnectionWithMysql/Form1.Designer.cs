@@ -46,7 +46,11 @@ namespace ConnectionWithMysql
             this.label4 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.txtCalleMySql = new System.Windows.Forms.TextBox();
+            this.txtIDZonaMySql = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtIDCategoriaMySql = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtPrecioMySql = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.btnRealizarMySQL = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -56,8 +60,12 @@ namespace ConnectionWithMysql
             this.txtIDMySql = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.txtCalleSql = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.txtIDZonaSql = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtIDCategoriaSql = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtPrecioSql = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.btnRealizarSql = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.cmbOperacionSQL = new System.Windows.Forms.ComboBox();
@@ -75,6 +83,8 @@ namespace ConnectionWithMysql
             this.btnMostrarDatosSQL = new System.Windows.Forms.Button();
             this.dgvDatosSQL = new System.Windows.Forms.DataGridView();
             this.dgvConsultaFragmentacion = new System.Windows.Forms.DataGridView();
+            this.txtIDZona = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -102,7 +112,7 @@ namespace ConnectionWithMysql
             this.txtHost.Name = "txtHost";
             this.txtHost.Size = new System.Drawing.Size(197, 26);
             this.txtHost.TabIndex = 1;
-            this.txtHost.Text = "192.168.0.111";
+            this.txtHost.Text = "192.168.1.70";
             // 
             // btnProbarConexión
             // 
@@ -168,7 +178,7 @@ namespace ConnectionWithMysql
             this.txtBD.Name = "txtBD";
             this.txtBD.Size = new System.Drawing.Size(197, 26);
             this.txtBD.TabIndex = 4;
-            this.txtBD.Text = "TiendaCarBD";
+            this.txtBD.Text = "BDFragmentaciones";
             // 
             // label4
             // 
@@ -189,12 +199,16 @@ namespace ConnectionWithMysql
             this.tabControl1.Location = new System.Drawing.Point(16, 252);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(391, 285);
+            this.tabControl1.Size = new System.Drawing.Size(391, 348);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.txtCalleMySql);
+            this.tabPage1.Controls.Add(this.txtIDZonaMySql);
+            this.tabPage1.Controls.Add(this.label16);
+            this.tabPage1.Controls.Add(this.txtIDCategoriaMySql);
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.txtPrecioMySql);
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.btnRealizarMySQL);
             this.tabPage1.Controls.Add(this.label10);
@@ -206,29 +220,67 @@ namespace ConnectionWithMysql
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(383, 252);
+            this.tabPage1.Size = new System.Drawing.Size(383, 315);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Registrar Datos de MySQL";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // txtCalleMySql
+            // txtIDZonaMySql
             // 
-            this.txtCalleMySql.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCalleMySql.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtCalleMySql.Location = new System.Drawing.Point(142, 89);
-            this.txtCalleMySql.Name = "txtCalleMySql";
-            this.txtCalleMySql.Size = new System.Drawing.Size(160, 26);
-            this.txtCalleMySql.TabIndex = 15;
+            this.txtIDZonaMySql.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDZonaMySql.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtIDZonaMySql.Location = new System.Drawing.Point(128, 141);
+            this.txtIDZonaMySql.Name = "txtIDZonaMySql";
+            this.txtIDZonaMySql.Size = new System.Drawing.Size(160, 26);
+            this.txtIDZonaMySql.TabIndex = 19;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(20, 141);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(63, 20);
+            this.label16.TabIndex = 20;
+            this.label16.Text = "IDZona";
+            // 
+            // txtIDCategoriaMySql
+            // 
+            this.txtIDCategoriaMySql.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDCategoriaMySql.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtIDCategoriaMySql.Location = new System.Drawing.Point(128, 109);
+            this.txtIDCategoriaMySql.Name = "txtIDCategoriaMySql";
+            this.txtIDCategoriaMySql.Size = new System.Drawing.Size(160, 26);
+            this.txtIDCategoriaMySql.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(20, 109);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(99, 20);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "IDCategoria:";
+            // 
+            // txtPrecioMySql
+            // 
+            this.txtPrecioMySql.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioMySql.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtPrecioMySql.Location = new System.Drawing.Point(128, 77);
+            this.txtPrecioMySql.Name = "txtPrecioMySql";
+            this.txtPrecioMySql.Size = new System.Drawing.Size(160, 26);
+            this.txtPrecioMySql.TabIndex = 15;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(88, 89);
+            this.label11.Location = new System.Drawing.Point(20, 77);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 20);
+            this.label11.Size = new System.Drawing.Size(57, 20);
             this.label11.TabIndex = 16;
-            this.label11.Text = "Calle:";
+            this.label11.Text = "Precio:";
             // 
             // btnRealizarMySQL
             // 
@@ -236,7 +288,7 @@ namespace ConnectionWithMysql
             this.btnRealizarMySQL.FlatAppearance.BorderSize = 0;
             this.btnRealizarMySQL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRealizarMySQL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRealizarMySQL.Location = new System.Drawing.Point(62, 201);
+            this.btnRealizarMySQL.Location = new System.Drawing.Point(128, 268);
             this.btnRealizarMySQL.Name = "btnRealizarMySQL";
             this.btnRealizarMySQL.Size = new System.Drawing.Size(239, 41);
             this.btnRealizarMySQL.TabIndex = 12;
@@ -248,7 +300,7 @@ namespace ConnectionWithMysql
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(105, 144);
+            this.label10.Location = new System.Drawing.Point(171, 201);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(196, 20);
             this.label10.TabIndex = 12;
@@ -262,7 +314,7 @@ namespace ConnectionWithMysql
             "Insertar",
             "Actualizar",
             "Eliminar"});
-            this.cmbOperacionMySQL.Location = new System.Drawing.Point(62, 167);
+            this.cmbOperacionMySQL.Location = new System.Drawing.Point(128, 224);
             this.cmbOperacionMySQL.Name = "cmbOperacionMySQL";
             this.cmbOperacionMySQL.Size = new System.Drawing.Size(239, 28);
             this.cmbOperacionMySQL.TabIndex = 12;
@@ -272,7 +324,7 @@ namespace ConnectionWithMysql
             // 
             this.txtNombreMySql.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreMySql.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtNombreMySql.Location = new System.Drawing.Point(142, 57);
+            this.txtNombreMySql.Location = new System.Drawing.Point(128, 45);
             this.txtNombreMySql.Name = "txtNombreMySql";
             this.txtNombreMySql.Size = new System.Drawing.Size(160, 26);
             this.txtNombreMySql.TabIndex = 13;
@@ -281,7 +333,7 @@ namespace ConnectionWithMysql
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(67, 57);
+            this.label7.Location = new System.Drawing.Point(8, 45);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 20);
             this.label7.TabIndex = 14;
@@ -291,7 +343,7 @@ namespace ConnectionWithMysql
             // 
             this.txtIDMySql.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDMySql.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtIDMySql.Location = new System.Drawing.Point(142, 19);
+            this.txtIDMySql.Location = new System.Drawing.Point(128, 6);
             this.txtIDMySql.Name = "txtIDMySql";
             this.txtIDMySql.Size = new System.Drawing.Size(160, 26);
             this.txtIDMySql.TabIndex = 12;
@@ -300,7 +352,7 @@ namespace ConnectionWithMysql
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(110, 19);
+            this.label6.Location = new System.Drawing.Point(42, 7);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 20);
             this.label6.TabIndex = 12;
@@ -308,8 +360,12 @@ namespace ConnectionWithMysql
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.txtCalleSql);
-            this.tabPage2.Controls.Add(this.label12);
+            this.tabPage2.Controls.Add(this.txtIDZonaSql);
+            this.tabPage2.Controls.Add(this.label17);
+            this.tabPage2.Controls.Add(this.txtIDCategoriaSql);
+            this.tabPage2.Controls.Add(this.label18);
+            this.tabPage2.Controls.Add(this.txtPrecioSql);
+            this.tabPage2.Controls.Add(this.label19);
             this.tabPage2.Controls.Add(this.btnRealizarSql);
             this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Controls.Add(this.cmbOperacionSQL);
@@ -320,29 +376,67 @@ namespace ConnectionWithMysql
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(383, 252);
+            this.tabPage2.Size = new System.Drawing.Size(383, 315);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Regisrar Datos de SQL";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // txtCalleSql
+            // txtIDZonaSql
             // 
-            this.txtCalleSql.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCalleSql.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtCalleSql.Location = new System.Drawing.Point(151, 85);
-            this.txtCalleSql.Name = "txtCalleSql";
-            this.txtCalleSql.Size = new System.Drawing.Size(160, 26);
-            this.txtCalleSql.TabIndex = 24;
+            this.txtIDZonaSql.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDZonaSql.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtIDZonaSql.Location = new System.Drawing.Point(151, 153);
+            this.txtIDZonaSql.Name = "txtIDZonaSql";
+            this.txtIDZonaSql.Size = new System.Drawing.Size(160, 26);
+            this.txtIDZonaSql.TabIndex = 30;
             // 
-            // label12
+            // label17
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(97, 85);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 20);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "Calle:";
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(76, 153);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(67, 20);
+            this.label17.TabIndex = 31;
+            this.label17.Text = "IDZona:";
+            // 
+            // txtIDCategoriaSql
+            // 
+            this.txtIDCategoriaSql.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDCategoriaSql.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtIDCategoriaSql.Location = new System.Drawing.Point(151, 121);
+            this.txtIDCategoriaSql.Name = "txtIDCategoriaSql";
+            this.txtIDCategoriaSql.Size = new System.Drawing.Size(160, 26);
+            this.txtIDCategoriaSql.TabIndex = 28;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(46, 121);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(99, 20);
+            this.label18.TabIndex = 29;
+            this.label18.Text = "IDCategoria:";
+            // 
+            // txtPrecioSql
+            // 
+            this.txtPrecioSql.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioSql.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtPrecioSql.Location = new System.Drawing.Point(151, 89);
+            this.txtPrecioSql.Name = "txtPrecioSql";
+            this.txtPrecioSql.Size = new System.Drawing.Size(160, 26);
+            this.txtPrecioSql.TabIndex = 26;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(88, 89);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(57, 20);
+            this.label19.TabIndex = 27;
+            this.label19.Text = "Precio:";
             // 
             // btnRealizarSql
             // 
@@ -350,7 +444,7 @@ namespace ConnectionWithMysql
             this.btnRealizarSql.FlatAppearance.BorderSize = 0;
             this.btnRealizarSql.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRealizarSql.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRealizarSql.Location = new System.Drawing.Point(71, 197);
+            this.btnRealizarSql.Location = new System.Drawing.Point(141, 268);
             this.btnRealizarSql.Name = "btnRealizarSql";
             this.btnRealizarSql.Size = new System.Drawing.Size(239, 41);
             this.btnRealizarSql.TabIndex = 17;
@@ -362,7 +456,7 @@ namespace ConnectionWithMysql
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(114, 140);
+            this.label13.Location = new System.Drawing.Point(184, 211);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(196, 20);
             this.label13.TabIndex = 18;
@@ -376,7 +470,7 @@ namespace ConnectionWithMysql
             "Insertar",
             "Actualizar",
             "Eliminar"});
-            this.cmbOperacionSQL.Location = new System.Drawing.Point(71, 163);
+            this.cmbOperacionSQL.Location = new System.Drawing.Point(141, 234);
             this.cmbOperacionSQL.Name = "cmbOperacionSQL";
             this.cmbOperacionSQL.Size = new System.Drawing.Size(239, 28);
             this.cmbOperacionSQL.TabIndex = 19;
@@ -519,7 +613,7 @@ namespace ConnectionWithMysql
             this.cmbTipoFragmentacion.FormattingEnabled = true;
             this.cmbTipoFragmentacion.Items.AddRange(new object[] {
             "Horizontal",
-            "Deriva",
+            "Vertical",
             "HorizontalDeriva"});
             this.cmbTipoFragmentacion.Location = new System.Drawing.Point(737, 509);
             this.cmbTipoFragmentacion.Name = "cmbTipoFragmentacion";
@@ -609,12 +703,34 @@ namespace ConnectionWithMysql
             this.dgvConsultaFragmentacion.Size = new System.Drawing.Size(541, 133);
             this.dgvConsultaFragmentacion.TabIndex = 19;
             // 
+            // txtIDZona
+            // 
+            this.txtIDZona.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDZona.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtIDZona.Location = new System.Drawing.Point(783, 549);
+            this.txtIDZona.Name = "txtIDZona";
+            this.txtIDZona.Size = new System.Drawing.Size(160, 26);
+            this.txtIDZona.TabIndex = 21;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(714, 555);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(63, 20);
+            this.label12.TabIndex = 21;
+            this.label12.Text = "IDZona";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
-            this.ClientSize = new System.Drawing.Size(971, 555);
+            this.ClientSize = new System.Drawing.Size(971, 612);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.txtIDZona);
             this.Controls.Add(this.dgvConsultaFragmentacion);
             this.Controls.Add(this.dgvDatosSQL);
             this.Controls.Add(this.btnMostrarDatosSQL);
@@ -681,10 +797,8 @@ namespace ConnectionWithMysql
         private System.Windows.Forms.Label lblTipoFragmentación;
         private System.Windows.Forms.Button btnFragmentacion;
         private System.Windows.Forms.ComboBox cmbTipoFragmentacion;
-        private System.Windows.Forms.TextBox txtCalleMySql;
+        private System.Windows.Forms.TextBox txtPrecioMySql;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtCalleSql;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnRealizarSql;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cmbOperacionSQL;
@@ -695,6 +809,18 @@ namespace ConnectionWithMysql
         private System.Windows.Forms.Button btnMostrarDatosSQL;
         public System.Windows.Forms.DataGridView dgvDatosSQL;
         public System.Windows.Forms.DataGridView dgvConsultaFragmentacion;
+        private System.Windows.Forms.TextBox txtIDZonaMySql;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtIDCategoriaMySql;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtIDZonaSql;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtIDCategoriaSql;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtPrecioSql;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txtIDZona;
+        private System.Windows.Forms.Label label12;
     }
 }
 
